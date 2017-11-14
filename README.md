@@ -27,9 +27,9 @@ The contents of this dll would look like:
      0 Tue Nov 14 11:12:18 AWST 2017 com/
      0 Tue Nov 14 11:12:18 AWST 2017 com/xerox/
      0 Tue Nov 14 11:12:18 AWST 2017 com/xerox/jatanor/
-  6349 Tue Nov 14 15:53:44 AWST 2017 com/xerox/jatanor/DynLoaderFromJar.class
-   780 Tue Nov 14 15:53:44 AWST 2017 com/xerox/jatanor/JAtanor.class
+     6349 Tue Nov 14 15:53:44 AWST 2017 com/xerox/jatanor/DynLoaderFromJar.class
+     780 Tue Nov 14 15:53:44 AWST 2017 com/xerox/jatanor/JAtanor.class
      0 Tue Nov 14 13:56:38 AWST 2017 linux/
-  16997688 Tue Nov 14 13:56:38 AWST 2017 linux/libjatanor.so
+     16997688 Tue Nov 14 13:56:38 AWST 2017 linux/libjatanor.so
 
 
