@@ -1,7 +1,7 @@
 <project name="JAtanor" default="all" basedir=".">
   <taskdef resource="net/sf/antcontrib/antlib.xml">
     <classpath>
-      <pathelement location="./ant-contrib-1.0b3.jar"/>
+      <pathelement location="src/main/resources/ant-contrib-1.0b3.jar"/>
     </classpath>
   </taskdef>
 
@@ -137,11 +137,11 @@
 
   <target name="jarjatanor" depends="">
     <property name="jatanor.package" value="com.xerox.jatanor"/>
-    <property name="distdir" location="dist" />
+    <property name="distdir" location="target/java/dist" />
     <mkdir dir="${distdir}" />
     <antcall target="createJar" >
       <param name="jar.file"           location="${distdir}/jatanor.jar" />
-      <param name="build.libElem.dir"  location="lib"  />
+      <param name="build.libElem.dir"  location="src/main/resources"  />
     </antcall>
   </target>
 
@@ -151,7 +151,7 @@
     <!-- init.properties used by DynLoaderFromJar -->
     <!-- create jar file -->
     <property name="build.libElem.dir" location="lib/${platformArch}" />
-    <property name="build.classes.dir" location="classes"/>
+    <property name="build.classes.dir" location="target/java/classes"/>
     <mkdir dir="${build.classes.dir}" />
     <jar jarfile="${jar.file}" update="no">
       <fileset file="${build.classes.dir}/init.properties"/>
@@ -186,12 +186,12 @@
 
 
   <target name="compile" depends="platformSetting, platformSettingmac" description="" >
-    <property name="build.include.dir" location="include"/>
+    <property name="build.include.dir" location="target/include"/>
     <mkdir dir="${build.include.dir}" />
     <property name="jatanor.package" value="com.xerox.jatanor"/>
-    <property name="build.classes.dir" location="classes"/>
+    <property name="build.classes.dir" location="target/java/classes"/>
     <mkdir dir="${build.classes.dir}" />
-    <property name="java.source.dir" location="src/java" />
+    <property name="java.source.dir" location="src/main/java" />
     <antcall target="javaCompile" />
     <antcall target="nativeHeader" />
     <antcall target="jarjatanor" />

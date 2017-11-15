@@ -8,19 +8,18 @@ gradually transofrmed into an sbt project.
 
 To built this project: 
 
-   1. Place the libjatanor.so dll for the linux plaform, that is produced by athanor under java/lib/linux
+   1. Place the libjatanor.so dll for the linux plaform that is produced by athanor under src/main/resources/linux
       (Retrieving this dll will be automated later  on).
-   2. cd java 
-   3. type: ant compile
+   3. In the project home directory - type: ant compile
 
 This will produce: 
-    java/dist/jatanor.jar
+    target/java/dist/jatanor.jar
 
 which you can link to from the athanor-server lib directory and test. 
 
 The contents of this dll would look like: 
 
-    jar tvf jatanor.jar 
+    jar tvf java/dist/jatanor.jar 
 
      0 Tue Nov 14 15:53:44 AWST 2017 META-INF/
      211 Tue Nov 14 15:53:42 AWST 2017 META-INF/MANIFEST.MF
