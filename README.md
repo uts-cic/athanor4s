@@ -2,33 +2,31 @@
 
 This is the athanor-server to athanor scala project interface 
 
-It is currently in transition as it is being set-up and 
-gradually transofrmed into an sbt project. 
-
-
 To built this project: 
 
-   1. Place the libjatanor.so dll for the linux plaform that is produced by athanor under src/main/resources/linux
-      (Retrieving this dll will be automated later  on).
-   3. In the project home directory - type: ant compile
+   1. sbt nativeCompile
 
-This will produce: 
-    target/java/dist/jatanor.jar
+   This will build the cpp dll. Repeat this for each platform that you wish to include 
+   (Currently Linux is the only tested platform). 
 
-which you can link to from the athanor-server lib directory and test. 
+   2. sbt package 
+   
+   This produces the following jar
+   
+       target/sbt-0.13/athanor4s-0.1.0.jar
 
-The contents of this dll would look like: 
+        ~/athanor4s$ jar tvf target/sbt-0.13/athanor4s-0.1.0.jar   252 Mon Nov 20 15:17:12 AWST 2017 META-INF/MANIFEST.MF
+        0 Mon Nov 20 15:17:12 AWST 2017 com/
+        0 Mon Nov 20 15:17:12 AWST 2017 com/xerox/
+        0 Mon Nov 20 15:17:12 AWST 2017 com/xerox/jatanor/
+        0 Mon Nov 20 15:17:12 AWST 2017 native/
+        0 Mon Nov 20 15:17:12 AWST 2017 native/x86_64-linux/
+        19787 Mon Nov 20 14:55:48 AWST 2017 com/xerox/jatanor/DynLoaderFromJar.class
+        16997616 Mon Nov 20 15:17:12 AWST 2017 native/x86_64-linux/libathanor.so
+        2953 Mon Nov 20 14:55:48 AWST 2017 com/xerox/jatanor/JAtanor.class
 
-    jar tvf java/dist/jatanor.jar 
+   3. sbt publish
 
-     0 Tue Nov 14 15:53:44 AWST 2017 META-INF/
-     211 Tue Nov 14 15:53:42 AWST 2017 META-INF/MANIFEST.MF
-     0 Tue Nov 14 11:12:18 AWST 2017 com/
-     0 Tue Nov 14 11:12:18 AWST 2017 com/xerox/
-     0 Tue Nov 14 11:12:18 AWST 2017 com/xerox/jatanor/
-     6349 Tue Nov 14 15:53:44 AWST 2017 com/xerox/jatanor/DynLoaderFromJar.class
-     780 Tue Nov 14 15:53:44 AWST 2017 com/xerox/jatanor/JAtanor.class
-     0 Tue Nov 14 13:56:38 AWST 2017 linux/
-     16997688 Tue Nov 14 13:56:38 AWST 2017 linux/libjatanor.so
-
-
+   This will publish the jar to bintray so it is ready to be download by the athanor-server project 
+    
+  
